@@ -1,0 +1,21 @@
+
+.string-filter-div {
+    display: inline-block;
+    width: 95%;
+    border: 1px solid black;
+    margin-top: 15px;
+    background: #F2F2F2;
+}
+
+.string-filter-div > button {
+    text-align: left;
+    background:inherit;
+    border: 0;
+    padding: 12px;
+    width: 100%;
+}
+
+.string-filter-div-list > ul {
+    padding: 10px;
+    margin: 0;
+}

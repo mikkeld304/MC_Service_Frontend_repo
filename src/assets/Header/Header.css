@@ -1,0 +1,15 @@
+
+.top-header-section {
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    background-color: #F8F8FF;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.top-header-section h1 {
+    font-size:300%;
+}

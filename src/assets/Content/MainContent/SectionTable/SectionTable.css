@@ -1,0 +1,30 @@
+
+
+.section__table {
+    display: table;
+    width: 100%;
+    background-color: #F8F8FF;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+
+th {
+    padding: 12px;
+    background: #2E3944;
+    border-style: none;
+    font-size: larger;
+}
+
+
+th:not(:last-child) {
+    border-right: 1px solid black;
+}
+
+tbody tr {
+    color: black;
+}

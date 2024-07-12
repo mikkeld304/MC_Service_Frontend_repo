@@ -1,0 +1,7 @@
+
+.main__actions-section {
+    display: inline-block;
+    height: 50px;
+    width: calc(100% -195px);
+    background: black;
+}

@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.main__section {
+display: flex;
+background: #748D92;
+margin: 0;
+padding: 0;
+flex: 1;
+}
+
+
+
+.main__attributes-overview {
+    display: inline-block;
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid black;
+    background-color: #DCDCDC;
+}
+
+.main__table-overview {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: #F8F8FF;
+}
+
+
+.main__table-section {
+    display: block;
+    overflow-y: auto;
+    
+}
+
+.actions-section {
+    display: flex;
+    height: 100px;
+    background: #DCDCDC;
+}
+
+.actions-section button {
+    width: 150px;
+    padding: 9px;
+    background-color: #234d6f;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.actions-section button:hover {
+    background-color: #4084b8;
+    cursor:pointer;
+}
+
+
+#main-table-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+#main-table-section::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+#main-table-section::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #363636;
+}
+
+
+/* Spinner section */
+
+
+
+.lds-dual-ring,
+.lds-dual-ring:after {
+  box-sizing: border-box;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  align-self: center;
+  margin-top: 100px;
+  color: black;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
