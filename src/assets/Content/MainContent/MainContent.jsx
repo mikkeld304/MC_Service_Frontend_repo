@@ -31,31 +31,26 @@ export default function MainContent() {
     function handleSetMotorcycles(motorcyclesArr) {
         setMotorcycles(motorcyclesArr);
     }
-console.log(motorcycles);
-    
-const trItems = Object.values(filterOptions).map(filterValue => {
-    console.log(filterValue);
-    /*
-    return (
-        <StringAttributeFilter filterType='Make' filterData={filterOptions}></StringAttributeFilter>
-    );
-*/
-});
 
-    
-        
-        
-        
 
+let filterNames = ["Make", "Model", "Type", "Color"];
+let trItems = [];
+const filterOptionsArr = Object.values(filterOptions);
+for (let i = 0; i < filterNames.length; i++) {
+    trItems.push(<StringAttributeFilter filterType={filterNames[i]} filterData={filterOptionsArr[i]}></StringAttributeFilter>);
+}
 
     return (
         <>
         { !isLoading ? (<section className="main__section">
 
             <section className='main__attributes-overview'>
-    
-                <StringAttributeFilter filterType='Make' filterData={filterOptions}></StringAttributeFilter>
-    
+                <div className='attributes-overview_div'>
+                    <form>
+                        {trItems}
+                        <button type="submit"></button>
+                    </form>
+                </div>
             </section>
             <section className='main__table-overview'>
                 <section className='actions-section'>

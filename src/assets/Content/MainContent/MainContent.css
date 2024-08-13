@@ -21,6 +21,10 @@ flex: 1;
     background-color: #DCDCDC;
 }
 
+.attributes-overview_div {
+  margin-top: 88px;
+}
+
 .main__table-overview {
     display: inline-block;
     height: 100%;
