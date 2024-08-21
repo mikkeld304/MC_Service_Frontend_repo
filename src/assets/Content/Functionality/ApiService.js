@@ -2,7 +2,7 @@
 
 export async function getMotorcycles() {
     try {
-    const response = await fetch("https://localhost:7157/getAllMotorcycles");
+    const response = await fetch("http://localhost:5272/getAllMotorcycles");
     if(!response.ok) {
         throw new Error(`Failed to fetch motorcycles: ${response.status} ${response.statusText}`);
     }

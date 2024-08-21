@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { addMotorcycleToDatabase } from '../../Functionality/ApiService.js';
 
 export default function AddMotorcycle({ motorcycles, onAdd }) {
-    const addMcUrl = "https://localhost:7157/addMotorcycle";
+    const addMcUrl = `${ROOT_URL}/addMotorcycle`;
     const [isAddingMotorcycle, setIsAddingMotorcycle] = useState(false);
     const [formValues, setFormValues] = useState({
         make: '',
@@ -14,7 +14,7 @@ export default function AddMotorcycle({ motorcycles, onAdd }) {
         year: ''
     })
 
-    function handleToggleInputsDiv() {
+    function handleToggleInputsDiv() { // useCallBack.
         setIsAddingMotorcycle(prevState => !prevState);
     }
 
