@@ -1,8 +1,10 @@
-
+const ROOT_URL = import.meta.env.VITE_REACT_APP_ROOT_URL;
+const getMotorcyclesApiEndpoint = `${ROOT_URL}/getAllMotorcycles`;
+const addMotorcycleApiEndpoint = `${ROOT_URL}/addMotorcycle`;
 
 export async function getMotorcycles() {
     try {
-    const response = await fetch("http://localhost:5272/getAllMotorcycles");
+    const response = await fetch(getMotorcyclesApiEndpoint);
     if(!response.ok) {
         throw new Error(`Failed to fetch motorcycles: ${response.status} ${response.statusText}`);
     }
@@ -15,9 +17,9 @@ export async function getMotorcycles() {
     }
 }
 
-export async function addMotorcycleToDatabase(url, data){
+export async function addMotorcycleToDatabase(data){
     try {
-        const response = await fetch(url, {
+        const response = await fetch(addMotorcycleApiEndpoint, {
             method: "POST",
             mode: "cors",
             headers: {

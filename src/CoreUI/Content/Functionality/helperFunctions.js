@@ -9,3 +9,7 @@ export const extractFilterOptionSets = (motorcycles) =>
       }),
       { make: new Set(), model: new Set(), type: new Set(), color: new Set() },
     );
+
+export function firstLetterToUpperCase(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}

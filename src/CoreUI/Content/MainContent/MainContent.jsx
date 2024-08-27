@@ -4,23 +4,25 @@ import { useEffect } from 'react';
 import { getMotorcycles } from '../Functionality/ApiService.js';
 import SectionTable from './SectionTable/SectionTable.jsx';
 import AddMotorcycle from './ActionsSection/AddMotorcycle.jsx';
-import  { extractFilterOptions } from '../Functionality/helperFunctions.js';
+import { extractFilterOptionSets, firstLetterToUpperCase } from '../Functionality/helperFunctions.js';
 import StringAttributeFilter from './Filtering/StringAttributeFilter.jsx';
+
 
 export default function MainContent() {
 
     const [motorcycles, setMotorcycles] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [filterOptions, setFilterOptions] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const [filterOptions, setFilterOptions] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true);
             const result = await getMotorcycles();
             if(result.error) {
                 console.log(result.error);
             }
             else {
-                setFilterOptions(extractFilterOptions(result));
+                setFilterOptions(extractFilterOptionSets(result));
                 setMotorcycles(result);
                 setIsLoading(false);
             } 
@@ -31,13 +33,11 @@ export default function MainContent() {
     function handleSetMotorcycles(motorcyclesArr) {
         setMotorcycles(motorcyclesArr);
     }
-
-
-let filterNames = ["Make", "Model", "Type", "Color"];
-let trItems = [];
-const filterOptionsArr = Object.values(filterOptions);
-for (let i = 0; i < filterNames.length; i++) {
-    trItems.push(<StringAttributeFilter filterType={filterNames[i]} filterData={filterOptionsArr[i]}></StringAttributeFilter>);
+    
+const trItems = [];
+for (const [key, value] of Object.entries(filterOptions)) {
+    const capitalizedKey = firstLetterToUpperCase(key);
+    trItems.push(<StringAttributeFilter filterType={capitalizedKey} filterData={value}></StringAttributeFilter>)
 }
 
     return (
@@ -45,12 +45,7 @@ for (let i = 0; i < filterNames.length; i++) {
         { !isLoading ? (<section className="main__section">
 
             <section className='main__attributes-overview'>
-                <div className='attributes-overview_div'>
-                    <form>
-                        {trItems}
-                        <button type="submit"></button>
-                    </form>
-                </div>
+                {trItems}
             </section>
             <section className='main__table-overview'>
                 <section className='actions-section'>

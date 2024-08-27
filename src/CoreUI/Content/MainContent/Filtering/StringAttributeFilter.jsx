@@ -7,11 +7,10 @@ export default function StringAttributeFilter({filterType, filterData}) {
 
     const [isDivOpen, setIsDivOpen] = useState(false);
 
-    let filterColor = filterData;
-    const trItems = filterColor.map(filterValue => {
+    const trItems = [...filterData].map((filterValue, i) => {
         
         return (
-            <FilterChoice filterValue={filterValue} type={filterType}></FilterChoice>
+            <FilterChoice key={i} filterValue={filterValue} type={filterType}></FilterChoice>
         );
 
     });

@@ -5,9 +5,9 @@ export default function SectionTable({motorcycles}) {
     
     
     
-    const trItems = motorcycles.map(motorcycle => {
+    const trItems = motorcycles.map((motorcycle, i) => {
         return (
-            <ListItem key={motorcycle._id.timestamp} {...motorcycle}></ListItem>
+            <ListItem key={i} {...motorcycle}></ListItem>
         );
     })
 
