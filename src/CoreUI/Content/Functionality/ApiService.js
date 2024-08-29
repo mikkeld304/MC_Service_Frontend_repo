@@ -13,7 +13,6 @@ export async function getMotorcycles() {
     }
     catch(err) {
         console.log("Error fetching motorcycles from server: ", err);
-        throw err;
     }
 }
 
@@ -23,16 +22,14 @@ export async function addMotorcycleToDatabase(data){
             method: "POST",
             mode: "cors",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(data)
         })
-        return response.json();
+        return await response.json();
     }
     catch(err) {
-        console.log("Error in addMotorcycleToDatabase function: ", err);
-        throw err;
+        console.log("Error in addMotorcycleToDatabase function: " + err);
     }
 }
 
-export default { getMotorcycles, addMotorcycleToDatabase };

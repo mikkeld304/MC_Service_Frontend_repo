@@ -10,10 +10,10 @@ export default function AddMotorcycle({ motorcycles, onAdd }) {
         type: '',
         ccm: '',
         color: '',
-        year: ''
+        year: '',
     })
 
-    const handleToggleInputsDiv = useCallback(() => { // Brug useCallBack - caching af funktion.
+    const handleToggleInputsDiv = useCallback(() => {
         setIsAddingMotorcycle(prevState => !prevState);
     }, []);
 
@@ -43,14 +43,20 @@ export default function AddMotorcycle({ motorcycles, onAdd }) {
             addMcFetch();
     }
 
+
     let trItems = [];
+    const ranIndex = Math.floor(Math.random() * motorcycles.length);
     for (const [key, value] of Object.entries(formValues)) {
+        const randomMc = motorcycles[ranIndex];
+        const newPlaceholder = randomMc ? `Eks. ${randomMc[key]}`:"Default placeholder"; 
         trItems.push(
-        <><label>{key}</label>
-        <input type="text" name={key} value={value} onChange={handleChange} placeholder="Eks. Harley Davidson"></input></>);
+        <section key={key}>
+        <label>{key}</label>
+        <input type="text" name={key} value={value} onChange={handleChange} placeholder={newPlaceholder}></input>;  {/* Fix: Form validation & input clearance on submit*/}
+        </section>)
     }
 
-    return ( //Component eller programmatically(Object.entries).
+    return (
         <div className="add-motorcycle-div">
             <button id="add-motorcycle-popup-btn" onClick={() => handleToggleInputsDiv()}>{isAddingMotorcycle ? "Annuller" : "Tilføj motorcykel"}</button>
             <form onSubmit={handleSubmit}>

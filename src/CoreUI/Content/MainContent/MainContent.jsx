@@ -37,7 +37,7 @@ export default function MainContent() {
 const trItems = [];
 for (const [key, value] of Object.entries(filterOptions)) {
     const capitalizedKey = firstLetterToUpperCase(key);
-    trItems.push(<StringAttributeFilter filterType={capitalizedKey} filterData={value}></StringAttributeFilter>)
+    trItems.push(<StringAttributeFilter key={key} filterType={capitalizedKey} filterData={value}></StringAttributeFilter>)
 }
 
     return (
