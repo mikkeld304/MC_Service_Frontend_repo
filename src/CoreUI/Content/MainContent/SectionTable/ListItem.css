@@ -1,4 +1,14 @@
-
 td {
-    padding-top: 15px;
+  padding-top: 15px;
+}
+
+.tdPrice:hover,
+.tdColor:hover {
+  background-color: #e2e2e6;
+  cursor: pointer;
+}
+
+td button {
+  width: 4vw;
+  height: 2vh;
 }

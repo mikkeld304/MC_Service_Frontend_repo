@@ -14,18 +14,29 @@ export function firstLetterToUpperCase(str) {
 }
 
 export function createFilterValueObj(filterOptions) {
-  const filterOptionsArr = Object.keys(filterOptions);
-  const emptyObject = {};
-  return filterOptionsArr.reduce(
-    (accumulator, value) => ({ ...accumulator, [value]: new Set("") }),
-    emptyObject
-  );
+  let filterOptionsArr;
+  try {
+    filterOptionsArr = Object.keys(filterOptions);
+    const emptyObject = {};
+    return filterOptionsArr.reduce(
+      (accumulator, value) => ({ ...accumulator, [value]: new Set("") }),
+      emptyObject
+    );
+  } catch (error) {
+    console.log("Error in createFilterValueObj: " + error);
+  }
+  return filterOptionsArr;
 }
 
 export function copyObjectWithSets(obj) {
-  const copy = {};
-  for (const [key, value] of Object.entries(obj)) {
-    copy[key] = new Set(value);
+  let copy;
+  try {
+    copy = {};
+    for (const [key, value] of Object.entries(obj)) {
+      copy[key] = new Set(value);
+    }
+  } catch (error) {
+    console.log(error);
   }
   return copy;
 }

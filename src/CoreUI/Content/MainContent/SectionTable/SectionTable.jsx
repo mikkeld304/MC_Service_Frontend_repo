@@ -24,13 +24,14 @@ export default function SectionTable({ motorcycles, filterValue }) {
   return (
     <table className="section__table">
       <thead>
-        <tr key="0">
+        <tr>
           <th>Make</th>
           <th>Model</th>
           <th>Type</th>
           <th>Ccm</th>
           <th>Color</th>
           <th>Year</th>
+          <th>Price</th>
         </tr>
       </thead>
       <tbody>{trItems}</tbody>
